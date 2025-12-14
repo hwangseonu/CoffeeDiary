@@ -142,7 +142,7 @@ dist
 .svelte-kit
 
 ### Svelte ###
-# gitignore template for the SvelteKit, frontend web component framework
+# gitignore template for the SvelteKit, frontend web Page framework
 # website: https://kit.svelte.dev/
 
 .svelte-kit/
