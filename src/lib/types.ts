@@ -36,3 +36,12 @@ export interface SensualityInfo {
     [key: string]: number,
 }
 
+export interface CoffeeRecord {
+    title: string,
+    description: string,
+    date: Date,
+    blend: BlendInfo,
+    recipe: RecipeInfo,
+    note: NoteInfo,
+    sensuality: SensualityInfo,
+}

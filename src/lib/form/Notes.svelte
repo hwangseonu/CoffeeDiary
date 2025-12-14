@@ -1,9 +1,12 @@
 <script lang="ts">
-    import {getContrastTextColor} from "$lib/utils"
+    import {getContrastTextColor, wellKnownNotes} from "$lib/utils"
     import type {NoteInfo} from "$lib/types";
+    import DragDropList, {type DropEvent, HorizontalDropZone, reorder} from "svelte-dnd-list";
 
     export let notes: NoteInfo
-    let noteInputString: string = notes.notes.join(",")
+    let noteInputString: string = notes.notes.join(", ")
+
+    let colorPicker = "#ff7d3b"
 
     $: {
         // noteInputString -> notes 로직
@@ -13,45 +16,31 @@
             .filter(note => note.length > 0);
     }
 
-    function addWellKnownNote(note: string) {
-        notes.notes.push(note)
+    $: gradientString = notes.colors.length > 0
+        ? notes.colors.join(', ')
+        : '#cccccc';
+
+    function addNoteColor() {
+        notes.colors = [...notes.colors, colorPicker];
+    }
+
+    function addWellKnownNote(note: { name: string, color: string }) {
+        notes.notes.push(note.name)
+        notes.colors = [...notes.colors, note.color];
         noteInputString = notes.notes.join(', ');
     }
 
-    const wellKnown = [
-        // 붉은색/주황색 계열: 과일 (Fruity)
-        {name: '딸기', color: '#ff6961'}, // 밝은 빨강
-        {name: '블루베리', color: '#597fb1'}, // 파란색 계열
-        {name: '오렌지', color: '#ff8c00'},
-        {name: '복숭아', color: '#ffb347'},
-        {name: '레몬', color: '#ffd700'}, // 노란색 계열
+    function removeColor(index: number) {
+        notes.colors = [...notes.colors.slice(0, index), ...notes.colors.slice(index + 1)]
+    }
 
-        // 갈색/주황색 계열: 견과류/코코아/캐러멜 (Nutty/Cocoa/Sweet)
-        {name: '다크 초콜릿', color: '#5c4033'}, // 진한 갈색
-        {name: '카라멜', color: '#a0522d'}, // 시에나 (Sienna)
-        {name: '코코아', color: '#964b00'}, // 갈색
-        {name: '아몬드', color: '#bbaa92'}, // 밝은 갈색
-        {name: '꿀', color: '#ffc300'},
-        {name: '바닐라', color: '#fcf8e3'}, // 밝은 크림색
+    function onDrop({detail: {from, to}}: CustomEvent<DropEvent>) {
+        if (!to || from === to) {
+            return;
+        }
 
-        // 녹색 계열: 채소/허브 (Vegetal/Herbal)
-        {name: '녹차', color: '#8fbc8f'}, // 연한 녹색
-        {name: '풀 냄새', color: '#556b2f'}, // 올리브색
-        {name: '허브', color: '#6b8e23'},
-
-        // 자주색 계열: 꽃 (Floral)
-        {name: '재스민', color: '#dda0dd'}, // 연한 보라
-        {name: '장미', color: '#ff69b4'}, // 핫 핑크
-        {name: '라벤더', color: '#b57edc'},
-
-        // 어두운 계열: 로스팅/향신료 (Roast/Spicy)
-        {name: '스모키', color: '#36454f'}, // 차콜색
-        {name: '계피', color: '#d2691e'}, // 초콜릿색
-        {name: '후추', color: '#000000'}, // 검은색
-
-        // 기타
-        {name: '흙', color: '#8b4513'}, // 안장색 (Saddle Brown)
-    ]
+        notes.colors = reorder(notes.colors, from.index, to.index);
+    }
 
     function getTextColor(noteColor: string): string {
         return getContrastTextColor(noteColor);
@@ -67,16 +56,54 @@
         <input bind:value={noteInputString} type="text" id="notes"
                class="w-full p-2 border border-stone-300 rounded-md"
                placeholder="Jasmine, Lemongrass, Syrup"></label>
-    <div class="mt-2">
+    <div class="mt-2 pb-4">
         <div id="quick-notes-container" class="flex flex-wrap gap-2">
-            {#each wellKnown as note}
-                <button type="button" on:click={() => addWellKnownNote(note.name)}
+            {#each wellKnownNotes as note}
+                <button type="button" on:click={() => addWellKnownNote(note)}
                         class="note-quick-add rounded-md text-xs px-3 py-2 shrink-0 cursor-pointer"
                         style={`background-color: ${note.color}; color: ${getTextColor(note.color)};`}
                 >
                     {note.name}
                 </button>
             {/each}
+        </div>
+    </div>
+    <div class="pt-4 border-t border-stone-100">
+        <div class="flex justify-between items-center">
+            <p class="block ">노트 색상</p>
+        </div>
+        <div class="color-bar-container w-full">
+            <div class="colors pt-4 pb-4 flex gap-2">
+                <DragDropList
+                        id="example"
+                        type={HorizontalDropZone}
+                        itemSize={50}
+                        itemCount={notes.colors.length}
+                        on:drop={onDrop}
+                        let:index
+
+                >
+                    <button class="m-1 rounded-4xl w-[44px] h-[44px]"
+                            title={notes.colors[index]}
+                            on:click={() => removeColor(index)}
+                            style={`background-color: ${notes.colors[index]};`}>
+                    </button>
+                </DragDropList>
+                <!--                <input placeholder="직접입력" />-->
+            </div>
+
+            <div class="color-gradient-bar h-5 rounded-lg"
+                 style={`background-image: linear-gradient(to right, ${gradientString});`}>
+            </div>
+
+            <div class="mt-4">
+                <p class="block ">사용자 지정</p>
+            </div>
+            <div class="flex flex-row justify-center items-center gap-2">
+                <input bind:value={colorPicker} type="color" class="w-full h-12"/>
+                <button on:click={addNoteColor}
+                        class="bg-amber-500 w-3/5 h-12 pr-2 pl-2 rounded-md text-amber-50">+</button>
+            </div>
         </div>
     </div>
 </div>

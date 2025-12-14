@@ -11,6 +11,9 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.1.18
         version: 4.1.18(vite@7.2.7(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.96.0)(sass@1.96.0))
+      svelte-dnd-list:
+        specifier: ^0.1.8
+        version: 0.1.8
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^7.0.0
@@ -987,6 +990,9 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
 
+  svelte-dnd-list@0.1.8:
+    resolution: {integrity: sha512-81Nt/niux7kf59lql0lxTAH0z8xwAxHdHC9dZT7MbfE32T6hgeLsLZ7RIBNAihQ040Io1KghqqPXD+k2viiKeA==}
+
   svelte@5.46.0:
     resolution: {integrity: sha512-ZhLtvroYxUxr+HQJfMZEDRsGsmU46x12RvAv/zi9584f5KOX7bUrEbhPJ7cKFmUvZTJXi/CFZUYwDC6M1FigPw==}
     engines: {node: '>=18'}
@@ -1830,6 +1836,8 @@ snapshots:
       typescript: 5.9.3
     transitivePeerDependencies:
       - picomatch
+
+  svelte-dnd-list@0.1.8: {}
 
   svelte@5.46.0:
     dependencies:
