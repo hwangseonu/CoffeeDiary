@@ -36,10 +36,7 @@
     <a href="/new">
         <div class="bg-amber-500 rounded-xl p-8 shadow-md text-white flex flex-col justify-center items-center cursor-pointer transition-colors hover:bg-amber-600 h-full min-h-[12rem]"
              id="dashboard-new-log-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-2" viewBox="0 0 24 24"
-                 stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-            </svg>
+            <i class="fa-solid fa-plus text-4xl"></i>
             <p class="font-bold text-xl">새로운 기록 시작</p>
             <p class="text-sm text-amber-100 mt-1">오늘의 커피를 기록하세요!</p>
         </div>

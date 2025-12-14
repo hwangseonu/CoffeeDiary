@@ -5,10 +5,12 @@
     export let blend: BlendInfo
 
     function addBlendButton() {
+        const color = (Math.random() * 0xFFFFFF | 0).toString(16).padStart(6, "0")
+
         blend.beans = [...blend.beans, {
             name: "",
-            ratio: 0,
-            color: ""
+            ratio: 10,
+            color: '#' + color
         }]
     }
 
@@ -43,18 +45,22 @@
             <p class="font-medium mb-2 text-stone-700">블렌드 구성 [원두명 / 비율(%)]</p>
             <div id="blend-inputs-container" class="space-y-2 max-h-72 overflow-y-auto">
                 {#each blend.beans as bean, i}
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 items-center justify-center">
                         <input type="text" class="blend-name w-5/6 p-2 border border-stone-300 rounded-md text-xs"
                                placeholder="원두 이름 (예: Guatemala Geisha)"
                                bind:value={bean.name}>
-                        <input type="number" min="0" max="100" step="1"
+                        <input type="number" min="0" max="100" step="10"
                                class="blend-ratio w-1/5 p-2 border border-stone-300 rounded-md text-xs text-right"
                                placeholder="비율 (%)"
                                bind:value={bean.ratio}>
+                        <input type="color"
+                               class="blend-color w-1/5 border-none outline-none rounded-md"
+                               bind:value={bean.color}>
                         <button type="button"
+                                title="remove"
                                 on:click={() => removeBlendButton(i)}
-                                class="remove-blend-btn w-1/12 p-2 bg-red-100 text-red-600 rounded-md hover:bg-red-200 transition-colors text-xs flex justify-center items-center h-full">
-                            -
+                                class="remove-blend-btn w-1/12 h-full p-2 bg-red-100 text-red-600 rounded-md hover:bg-red-200 transition-colors text-xs flex justify-center items-center">
+                            <i class="fa-solid fa-trash"></i>
                         </button>
                     </div>
                 {/each}

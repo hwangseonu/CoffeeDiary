@@ -21,6 +21,10 @@ export function getContrastTextColor(hexColor: string): 'black' | 'white' {
     return luminance > threshold ? 'black' : 'white';
 }
 
+export function getBrewRatio(dose: number, extract: number): string {
+    return "1:"+(extract/dose).toFixed(2).replace(/\.?0+$/, '').replace(/\.$/, '')
+}
+
 export const wellKnownNotes = [
     // --------------------------------------------------------------------------------------
     // 1단계: FRUIT (과일) - 대표색: 보라 (Purple/Pink)

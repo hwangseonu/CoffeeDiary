@@ -4,6 +4,7 @@
     import Recipe from "$lib/form/Recipe.svelte";
     import Sensuality from "$lib/form/Sensuality.svelte";
     import Notes from "$lib/form/Notes.svelte";
+    import RecordViewer from "$lib/viewer/RecordViewer.svelte";
 
     let record: CoffeeRecord = {
         title: "",
@@ -37,15 +38,15 @@
     }
 </script>
 
-<div class="flex flex-col md:flex-row">
-    <div class="w-full p-4 flex flex-col gap-4 md:w-xl">
+<div class="flex flex-col md:flex-row p-4 gap-4">
+    <div class="w-full flex flex-col gap-4 md:w-2/5">
         <Blend bind:blend={record.blend}/>
         <Recipe bind:recipe={record.recipe}/>
         <Notes bind:notes={record.note}/>
         <Sensuality bind:sensuality={record.sensuality}/>
     </div>
-    <div>
-        preview
+    <div class="w-full md:w-3/5">
+        <RecordViewer record={record}/>
     </div>
 </div>
 
