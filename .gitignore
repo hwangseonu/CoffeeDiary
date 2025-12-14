@@ -1,21 +1,12 @@
-# Created by https://www.toptal.com/developers/gitignore/api/webstorm,react
-# Edit at https://www.toptal.com/developers/gitignore?templates=webstorm,react
+# Created by https://www.toptal.com/developers/gitignore/api/svelte,webstorm
+# Edit at https://www.toptal.com/developers/gitignore?templates=svelte,webstorm
 
-### react ###
-.DS_*
-*.log
-logs
-**/*.backup.*
-**/*.back.*
+### Svelte ###
+# gitignore template for the SvelteKit, frontend web component framework
+# website: https://kit.svelte.dev/
 
-node_modules
-bower_components
-
-*.sublime*
-
-psd
-thumb
-sketch
+.svelte-kit/
+package
 
 ### WebStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -130,4 +121,4 @@ fabric.properties
 # https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
 .idea/**/azureSettings.xml
 
-# End of https://www.toptal.com/developers/gitignore/api/webstorm,react
+# End of https://www.toptal.com/developers/gitignore/api/svelte,webstorm
