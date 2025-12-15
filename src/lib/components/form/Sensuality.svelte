@@ -15,7 +15,7 @@
     ]
 </script>
 
-<div class="w-full bg-white rounded-xl shadow-md p-5">
+<div class="w-full h-[600px] bg-white rounded-xl shadow-md p-5">
     <h3 class="font-bold text-lg text-stone-800 mb-4 flex items-center gap-2">
         <span class="w-1 h-5 bg-stone-600 rounded-full"></span>
         컵 품질 평가 (1~5점)
@@ -24,9 +24,9 @@
     <div id="quality-sliders" class="space-y-4">
         {#each categories as category}
             <div class="space-y-2">
-                <div class="flex justify-between items-center text-xs"><span>{category.text} ({category.id})</span><span
-                        id="strength-val"
-                        class="font-bold text-amber-600">{sensuality[category.id.toLocaleString().toLowerCase()]}</span>
+                <div class="flex justify-between items-center text-xs">
+                    <span class="">{category.text} ({category.id})</span>
+                    <span id="strength-val" class="font-bold text-amber-600">{sensuality[category.id.toLocaleString().toLowerCase()]}</span>
                 </div>
                 <div class="slider-container">
                     <input bind:value={sensuality[category.id.toLocaleString().toLowerCase()]} type="range"
@@ -46,18 +46,16 @@
 <style>
     .slider-container {
         position: relative;
-        padding-bottom: 20px; /* Space for dots */
     }
 
     .slider-dots {
         position: absolute;
-        bottom: 0;
         left: 0;
         right: 0;
         height: 10px;
         display: flex;
         justify-content: space-between;
-        padding: 0 4px; /* Adjust for slider thumb overhang */
+        padding: 0 4px;
     }
 
     .slider-dot {

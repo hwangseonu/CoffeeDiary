@@ -12,8 +12,4 @@
         <h2 id="display-blend-name" class="serif-font text-4xl md:text-5xl font-bold text-stone-900 mb-2">{record.title}</h2>
         <p id="display-roast-level" class="text-stone-500 text-lg mb-6">{record.blend.roastLevel}</p>
     </div>
-
-    <div class="relative z-10 text-center md:text-left">
-        {record.description}
-    </div>
 </section>

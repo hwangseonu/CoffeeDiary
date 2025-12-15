@@ -21,12 +21,14 @@ export interface RecipeInfo {
 }
 
 export interface NoteInfo {
-    notes: string[],
-    colors: string[],
+    id: number,
+    text: string,
+    color: string
 }
 
 export interface SensualityInfo {
     [key: string]: number,
+
     body: number,
     clarity: number,
     acidity: number,
@@ -44,6 +46,6 @@ export interface CoffeeRecord {
     date: Date,
     blend: BlendInfo,
     recipe: RecipeInfo,
-    note: NoteInfo,
+    notes: NoteInfo[],
     sensuality: SensualityInfo,
 }

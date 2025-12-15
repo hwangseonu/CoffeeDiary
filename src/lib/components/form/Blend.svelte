@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {type BlendInfo} from "../types.ts"
+    import {type BlendInfo} from "$lib/types"
     import DateInput from "$lib/components/DateInput.svelte";
 
     export let blend: BlendInfo

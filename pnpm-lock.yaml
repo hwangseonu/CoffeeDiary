@@ -14,9 +14,12 @@ importers:
       chart.js:
         specifier: ^4.5.1
         version: 4.5.1
-      svelte-dnd-list:
-        specifier: ^0.1.8
-        version: 0.1.8
+      dotenv:
+        specifier: ^17.2.3
+        version: 17.2.3
+      svelte-dnd-action:
+        specifier: ^0.9.68
+        version: 0.9.68(svelte@5.46.0)
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^7.0.0
@@ -647,6 +650,10 @@ packages:
   devalue@5.6.1:
     resolution: {integrity: sha512-jDwizj+IlEZBunHcOuuFVBnIMPAEHvTsJj0BcIp94xYguLRVBcXO853px/MyIJvbVzWdsGvrRweIUWJw8hBP7A==}
 
+  dotenv@17.2.3:
+    resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
+    engines: {node: '>=12'}
+
   electron-to-chromium@1.5.267:
     resolution: {integrity: sha512-0Drusm6MVRXSOJpGbaSVgcQsuB4hEkMpHXaVstcPmhu5LIedxs1xNK/nIxmQIU/RPC0+1/o0AVZfBTkTNJOdUw==}
 
@@ -1000,8 +1007,10 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
 
-  svelte-dnd-list@0.1.8:
-    resolution: {integrity: sha512-81Nt/niux7kf59lql0lxTAH0z8xwAxHdHC9dZT7MbfE32T6hgeLsLZ7RIBNAihQ040Io1KghqqPXD+k2viiKeA==}
+  svelte-dnd-action@0.9.68:
+    resolution: {integrity: sha512-maFNIHwimGYbvIG8uOHsU9T/4+VKBIaAaFEGWYFIyo4f8qwUs0BIqwvBfHkaN+MXt8MBB9rByPTvF7fRx0eIjw==}
+    peerDependencies:
+      svelte: '>=3.23.0 || ^5.0.0-next.0'
 
   svelte@5.46.0:
     resolution: {integrity: sha512-ZhLtvroYxUxr+HQJfMZEDRsGsmU46x12RvAv/zi9584f5KOX7bUrEbhPJ7cKFmUvZTJXi/CFZUYwDC6M1FigPw==}
@@ -1518,6 +1527,8 @@ snapshots:
 
   devalue@5.6.1: {}
 
+  dotenv@17.2.3: {}
+
   electron-to-chromium@1.5.267: {}
 
   enhanced-resolve@5.18.4:
@@ -1853,7 +1864,9 @@ snapshots:
     transitivePeerDependencies:
       - picomatch
 
-  svelte-dnd-list@0.1.8: {}
+  svelte-dnd-action@0.9.68(svelte@5.46.0):
+    dependencies:
+      svelte: 5.46.0
 
   svelte@5.46.0:
     dependencies:
