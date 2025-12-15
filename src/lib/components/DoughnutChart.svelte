@@ -22,8 +22,7 @@
         cutout: '50%', // 도넛 모양을 결정하는 핵심 옵션
         plugins: {
             legend: {
-                align: 'start',
-                position: 'bottom' as const,
+                display: false,
             },
         },
     };

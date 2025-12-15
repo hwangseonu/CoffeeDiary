@@ -40,7 +40,7 @@
     async function save() {
         const response = await fetch("/api/post", {
             method: 'POST', // 일반 POST 메서드 사용
-            headers: { 'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(record)
         });
 
@@ -53,7 +53,9 @@
         <Summary bind:record={record}/>
         <div class="flex gap-4 flex-col md:flex-row">
             <BlendForm bind:blend={record.blend}/>
-            <BlendViewer blend={record.blend}/>
+            <div class="w-full h-full md:w-1/2">
+                <BlendViewer blend={record.blend}/>
+            </div>
         </div>
         <Recipe bind:recipe={record.recipe}/>
         <div class="flex gap-4 flex-col md:flex-row">
@@ -62,7 +64,8 @@
             </div>
             <div class="w-full flex flex-col gap-4">
                 <Sensuality bind:sensuality={record.sensuality}/>
-                <button on:click={save} id="save-log-btn" class="w-full h-18 px-4 py-2 rounded-lg shadow-md bg-amber-500 hover:bg-amber-600 text-xl text-white font-medium transition-colors cursor-pointer">
+                <button on:click={save} id="save-log-btn"
+                        class="w-full h-18 px-4 py-2 rounded-lg shadow-md bg-amber-500 hover:bg-amber-600 text-xl text-white font-medium transition-colors cursor-pointer">
                     저장하기
                 </button>
             </div>

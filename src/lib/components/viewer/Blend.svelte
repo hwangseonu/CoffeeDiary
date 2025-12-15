@@ -21,7 +21,7 @@
     }
 </script>
 
-<section id="blend-info" class="bg-white rounded-xl p-6 shadow-md border border-stone-100">
+<section id="blend-info" class="w-full h-full bg-white rounded-xl p-6 shadow-md border border-stone-100">
     <div class="mb-4">
         <h3 class="font-bold text-lg text-stone-800 flex items-center gap-2">
             <span class="w-1 h-5 bg-amber-600 rounded-full"></span>
@@ -31,5 +31,14 @@
 
     <div class="chart-container">
         <DoughnutChart data={blendData}/>
+    </div>
+
+    <div class="legend max-h-56 overflow-auto flex flex-col gap-2 mt-4">
+        {#each blend.beans as bean}
+            <div class="flex items-center gap-2">
+                <div class="w-5 h-5" style={`background-color: ${bean.color};`}></div>
+                <span class="">{bean.name}</span>
+            </div>
+        {/each}
     </div>
 </section>
