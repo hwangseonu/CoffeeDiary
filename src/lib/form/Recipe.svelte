@@ -21,7 +21,7 @@
             <label>그라인더: <input bind:value={recipe.grinder} type="text" id="grind" class="w-full p-2 border border-stone-300 rounded-md" placeholder="k6, 100clicks"></label>
             <label>분쇄도 (μm): <input bind:value={recipe.grindSize} type="number" step="10" id="grind" class="w-full p-2 border border-stone-300 rounded-md" placeholder="1300"></label>
             <label class="flex flex-col w-full col-span-full">추출변수(Dynamics)
-                <textarea bind:value={recipe.dynamics} class="w-full h-80 rounded-md border border-stone-300 resize-none"></textarea>
+                <textarea bind:value={recipe.dynamics} class="w-full h-24 rounded-md border border-stone-300 resize-none"></textarea>
             </label>
         </div>
     </div>

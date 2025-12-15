@@ -27,13 +27,13 @@
             },
         },
     };
+
     function chartAction(canvas: HTMLCanvasElement) {
         canvasElement = canvas;
-        return {}; // action은 객체를 반환해야 합니다.
+        return {};
     }
 
     onMount(() => {
-        // 캔버스 요소가 준비되었는지 확인
         if (canvasElement) {
             chartInstance = new Chart(canvasElement, {
                 type: 'doughnut',

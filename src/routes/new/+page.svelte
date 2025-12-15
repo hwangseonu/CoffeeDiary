@@ -5,6 +5,7 @@
     import Sensuality from "$lib/form/Sensuality.svelte";
     import Notes from "$lib/form/Notes.svelte";
     import RecordViewer from "$lib/viewer/RecordViewer.svelte";
+    import Summary from "$lib/form/Summary.svelte";
 
     let record: CoffeeRecord = {
         title: "",
@@ -31,19 +32,25 @@
             clarity: 0,
             acidity: 0,
             sweetness: 0,
+            aroma: 0,
             bitter: 0,
             aftertaste: 0,
             balance: 0,
+        },
+        review: {
+            score: 0,
+            text: "",
         }
     }
 </script>
 
 <div class="flex flex-col md:flex-row p-4 gap-4">
     <div class="w-full flex flex-col gap-4 md:w-2/5">
+        <Summary bind:record={record}/>
         <Blend bind:blend={record.blend}/>
         <Recipe bind:recipe={record.recipe}/>
         <Notes bind:notes={record.note}/>
-        <Sensuality bind:sensuality={record.sensuality}/>
+        <Sensuality bind:sensuality={record.sensuality} />
     </div>
     <div class="w-full md:w-3/5">
         <RecordViewer record={record}/>

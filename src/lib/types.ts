@@ -1,6 +1,6 @@
 export interface BlendInfo {
-    name: string,
     roastDate: Date,
+    roastLevel: string,
     beans: BeanInfo[],
 }
 
@@ -26,19 +26,21 @@ export interface NoteInfo {
 }
 
 export interface SensualityInfo {
+    [key: string]: number,
     body: number,
     clarity: number,
     acidity: number,
     sweetness: number,
+    aroma: number,
     bitter: number,
     aftertaste: number,
     balance: number,
-    [key: string]: number,
 }
 
 export interface CoffeeRecord {
     title: string,
     description: string,
+    score: number,
     date: Date,
     blend: BlendInfo,
     recipe: RecipeInfo,

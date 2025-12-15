@@ -52,10 +52,10 @@
         <span class="w-1 h-5 bg-stone-600 rounded-full"></span>
         테이스팅 노트
     </h3>
-    <label class="block">노트 (쉼표 구분):
+    <label class="block"><i class="fa-solid fa-heart"></i>노트
         <input bind:value={noteInputString} type="text" id="notes"
                class="w-full p-2 border border-stone-300 rounded-md"
-               placeholder="Jasmine, Lemongrass, Syrup"></label>
+               placeholder="이번 잔에서 느낀 노트를 쉼표로 구분해서 입력해주세요. 자주 사용하는건 미리 준비해뒀어요!"></label>
     <div class="mt-2 pb-4">
         <div id="quick-notes-container" class="flex flex-wrap gap-2">
             {#each wellKnownNotes as note}
@@ -70,7 +70,7 @@
     </div>
     <div class="pt-4 border-t border-stone-100">
         <div class="flex justify-between items-center">
-            <p class="block ">노트 색상</p>
+            <p class="block "><i class="fa-solid fa-palette"></i>노트 색상</p>
         </div>
         <div class="color-bar-container w-full">
             <div class="colors pt-4 pb-4 flex gap-2">
@@ -97,7 +97,7 @@
             </div>
 
             <div class="mt-4">
-                <p class="block ">사용자 지정</p>
+                <p class="block "><i class="fa-solid fa-eye-dropper"></i>사용자 지정</p>
             </div>
             <div class="flex flex-row justify-center items-center gap-2">
                 <input bind:value={colorPicker} type="color" class="w-full h-12"/>

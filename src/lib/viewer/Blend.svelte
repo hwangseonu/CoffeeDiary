@@ -21,7 +21,7 @@
     }
 </script>
 
-<div id="blend-info" class="col-span-1 md:col-span-2 bg-white rounded-xl p-6 shadow-md border border-stone-100">
+<section id="blend-info" class="bg-white rounded-xl p-6 shadow-md border border-stone-100">
     <div class="mb-4">
         <h3 class="font-bold text-lg text-stone-800 flex items-center gap-2">
             <span class="w-1 h-5 bg-amber-600 rounded-full"></span>
@@ -32,4 +32,4 @@
     <div class="chart-container">
         <DoughnutChart data={blendData}/>
     </div>
-</div>
+</section>

@@ -5,6 +5,7 @@
 
     export let sensuality: SensualityInfo
     let sensualityData: ChartData<'radar'>
+
     $: {
         sensualityData = {
             labels: Object.keys(sensuality),
@@ -23,7 +24,7 @@
     }
 </script>
 
-<div id="quality-section" class="col-span-1 md:col-span-3 bg-white rounded-xl p-6 shadow-md border border-stone-100">
+<section id="quality-section" class="bg-white rounded-xl p-6 shadow-md border border-stone-100">
     <div class="mb-4">
         <h3 class="font-bold text-lg text-stone-800 flex items-center gap-2">
             <span class="w-1 h-5 bg-green-600 rounded-full"></span>
@@ -31,12 +32,13 @@
         </h3>
     </div>
 
+
+
     <div class="chart-container" style="height: 300px; max-width: none;">
         <RadarChart data={sensualityData}/>
     </div>
 
     <div class="grid grid-cols-2 gap-2 mt-4 text-xs text-center text-stone-500">
-        <div class="bg-stone-50 p-2 rounded">산미와 선명도 중심</div>
-        <div class="bg-stone-50 p-2 rounded">쓴맛은 0점</div>
+
     </div>
-</div>
+</section>

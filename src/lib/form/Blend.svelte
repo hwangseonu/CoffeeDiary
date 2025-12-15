@@ -28,16 +28,11 @@
         블렌드 정보
     </h3>
     <form id="input-form" class="space-y-6">
-        <label class="block">블렌드/이름
-            <input type="text" id="blendName" class="w-full p-2 border border-stone-300 rounded-md"
-                   bind:value={blend.name}
-                   required>
-        </label>
         <label class="block">로스팅 날짜
             <DateInput bind:date={blend.roastDate} />
         </label>
         <label class="block">로스팅 레벨
-            <input type="text" id="roastLevel"
+            <input bind:value={blend.roastLevel} type="text" id="roastLevel"
                    class="w-full p-2 border border-stone-300 rounded-md"
                    placeholder="Light (#88)">
         </label>

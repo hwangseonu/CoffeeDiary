@@ -8,6 +8,7 @@
         {id: "Clarity", text: "선명도"},
         {id: "Acidity", text: "산미"},
         {id: "Sweetness", text: "단맛"},
+        {id: "Aroma", text: "향"},
         {id: "Bitter", text: "쓴맛"},
         {id: "Aftertaste", text: "후미"},
         {id: "Balance", text: "균형감"},
